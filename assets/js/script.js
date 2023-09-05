@@ -90,8 +90,10 @@
 
   $( ".ui-button-icon" ).removeClass("ui-icon-closethick");
 
+  let img = $("#recycle-icon img")
   $( "#recycle-icon" ).click(function( event ) {
-    $( "#recycle-window" ).dialog( "open" );
+    img.effect( "shake", {distance: 3} );
+    img.attr("src", "assets/images/desktop-icons/bin72.png");
     event.preventDefault();
   });
 
@@ -135,18 +137,83 @@
     event.preventDefault();
   });
 
-  let menu = $("ul#start-menu").menu().hide();
+  let menu = $("#start-menu").menu().hide();
 
-  $("#taskbar-start").click(function() {
-        menu.show().position({
-              my: "left top",
-              at: "left bottom",
-              of: this
-        });
-        $( document ).one( "click", function() {
-              menu.hide();
-        });
-        return false;
+  $( "#taskbar-start" ).click(function() {
+      menu.toggle();
+
+      menu.position({
+            my: "left top",
+            at: "left bottom",
+            of: this
+      });
+
+      $( document ).one( "click", function() {
+            menu.hide();
+      });
+
+      return false;
   });
+
+  $( "#settings-darkmode" ).click(function() {
+    let theme = $( "#current-theme" ).text()
+    $( "html" ).attr("data-theme", theme);
+    
+    if (theme === "darkmode") {
+      $( "#current-theme" ).text("lightmode")
+    } else {
+      $( "#current-theme" ).text("darkmode")
+    }
+  })
+
+  
+  $( "#logoff" ).click(function() {
+    let overlay = $('<div></div>');  
+    $( "body" ).append(overlay);
+    overlay.fadeIn().addClass('overlay-styles');
+
+    let logInHeader = $('<div></div>')
+    logInHeader.addClass('login-header'); 
+    logInHeader.text('LOG IN');
+
+    let userInput = $('<input />')
+    .attr('type', 'text')
+    .attr('value', 'tempestTypist')
+    .addClass('login-body__email'); 
+
+    let passInput = $('<input />')
+    .attr('type', 'password')
+    .attr('value', 'password')
+    .addClass('login-body__password'); 
+
+    let logInBtn = $("<button></button>");
+    logInBtn.text('Log In...');
+    logInBtn.addClass('login-body__submit');                
+    logInBtn.on('click', function(){
+        overlay.remove();
+        overlayContent.remove();
+    });
+
+    let logInForm = $('<form>')
+    .append(userInput)
+    .append(passInput)
+    .append(logInBtn)
+    logInForm.addClass('login-body'); 
+
+    let overlayContent = $('<div>')
+    .addClass('overlay-content-styles login-card')
+    .append(logInHeader)
+    .append(logInForm)
+
+    overlay.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", 
+    function() {     
+        $('body').append(overlayContent); 
+    }
+);   
+  })
+  
+  $( "#shutdown" ).click(function() {
+    window.close()
+  })
 
 })(jQuery);

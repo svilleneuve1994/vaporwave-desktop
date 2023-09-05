@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" data-theme="lightmode">
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
@@ -40,7 +40,9 @@
 
                     <ul class="desktop-icons d-inline-block">
                         <li id="recycle-icon">
-                            <div class="icon"></div>
+                            <div class="icon">
+                                <img src="assets/images/desktop-icons/bin72-full.png" />
+                            </div>
                             <p>Recycle</p>
                         </li>
                         <li id="file-icon">
@@ -61,81 +63,23 @@
                 <!-- /desktop icons -->
 
                 <!-- Desktop Icon Windows -->
-                <div id="recycle-window" class="window" title="trash.bin">
-                    Under Construction
-                </div>
-
                 <div id="file-window" class="window" title="files">
                     Under Construction
                 </div>
 
                 <div id="email-window" class="window" title="e-mail">
                     Under Construction
-                    <!-- <div class="ds-top"></div>
-                    <div class="avatar-holder">
-                        <img src="./assets/images/vpwv-pfp.png" alt="Summer Villeneuve">
-                    </div>
-                    <div class="contact-content">
-                        <div class="row justify-content-center">
-                            <div class="col-xs-12">
-                                <ul id="contact-me">
-                                    <li class="mb-3 d-flex justify-content-center align-items-center text-center">
-                                        <i class="far fa-envelope fa-fw"></i>
-                                        <div><span class="fw-bold">Email: </span>svilleneuve1994@gmail.com</div>
-                                        <i class="far fa-envelope fa-fw"></i>
-                                    </li>
-                                    <li class="mb-3 d-flex justify-content-center align-items-center text-center">
-                                        <i class="fas fa-mobile-alt fa-fw"></i>
-                                        <div><span class="fw-bold">Phone: </span>519-350-1810</div>
-                                        <i class="fas fa-mobile-alt fa-fw"></i>
-                                    </li>
-                                    <li class="mb-3 d-flex justify-content-center align-items-center text-center">
-                                        <i class="fas fa-dove fa-fw"></i>
-                                        <div><span class="fw-bold">Carrier Pigeon: </span>Henry</div>
-                                        <i class="fas fa-dove fa-fw"></i>
-                                    </li>
-                                </ul>
-
-                                <hr>
-
-                                <h2 class="text-center">Send a message</h2>
-
-                                <form class="row">
-                                    <div class="col-12">
-                                        <div class="styled-input wide">
-                                            <input type="text" required />
-                                            <label>Name</label> 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="styled-input">
-                                            <input type="text" required />
-                                            <label>Email</label> 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="styled-input" style="float:right;">
-                                            <input type="text" required />
-                                            <label>Phone</label> 
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="styled-input wide">
-                                            <textarea required></textarea>
-                                            <label>Message</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="btn-lrg submit-btn">Deploy Henry <i class="fas fa-dove fa-fw"></i></div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
 
-                <div id="music-window" class="window" title="music.mp3">
-                    Under Construction
+                <div id="music-window" class="window" title="music.mp3" style="overflow:hidden">
+                    <iframe 
+                        src="https://open.spotify.com/embed/playlist/5Xbw19WOP3dFIXSN6RuD1X?utm_source=generator&theme=0" 
+                        width="100%" height="100%" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                    </iframe>
                 </div>
                 <!-- /desktop icon windows -->
 
@@ -161,12 +105,58 @@
                 <!-- /decorative windows -->
 
                 <!-- Start Menu -->
-                <ul style="height: 500px;width:300px;z-index:1002;" id="start-menu">
-                    <li><div>Under Construction</div></li>
-                    <li><div>Under Construction</div></li>
-                    <li><div>Under Construction</div></li>
+                <ul 
+                    style="height: 500px;width:300px;z-index:1002;" 
+                    id="start-menu"
+                    >
+                    <li class="mt-auto" id="settings">
+                        <div>
+                            <div class="icon"></div>
+                            <div>Settings</div>
+                        </div>
+                        <ul>
+                            <li id="settings-darkmode">
+                                <div class="align-items-center">
+                                    <div class="icon"></div>
+                                    <span id="current-theme">darkmode</span>
+                                    <!-- <span class="current-theme" style="display:none">Lightmode</span> -->
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="logoff">
+                        <div>
+                            <div class="icon"></div>
+                            <div>Log Off...</div>
+                        </div>
+                    </li>
+                    <li id="shutdown">
+                        <div>
+                            <div class="icon"></div>
+                            <div>Shut Down...</div>
+                        </div>
+                    </li>                        
                 </ul>
                 <!-- /start menu -->
+
+                <!-- <ul class="desktop-icons d-inline-block">
+                    <li id="recycle-icon">
+                        <div class="icon"></div>
+                        <p>Recycle</p>
+                    </li>
+                    <li id="file-icon">
+                        <div class="icon"></div>
+                        <p>Files</p>
+                    </li>
+                    <li id="music-icon">
+                        <div class="icon"></div>
+                        <p>Music</p>
+                    </li>
+                    <li id="email-icon">
+                        <div class="icon"></div>
+                        <p>E-Mail</p>
+                    </li>
+                </ul> -->
 
             </div>
             <!-- /site content -->
